@@ -2,29 +2,37 @@
 <table class="table table-bordered">
 	<tr>
 		<th> # </th>
-		<th> Nombre </th>
-		<th> Apellido </th>
-		<th> Edad </th>
+		<th> trabajador </th>
+		<th> dibujo </th>
+		<th> hilo </th>
 		<th> </th>
 	</tr>
 <?php
 
 require '../../conector/conexion.php';
 
-$sql = mysqli_query($con,"SELECT * FROM usuario ORDER BY ID_usuario DESC");
+//$sql = mysqli_query($con,"SELECT * FROM produccion ORDER BY ID_usuario DESC");
+
+$sql = mysqli_query($con,"SELECT produccion.ID_usuario, empleados.nombres, dibujos.dibujo, hilos.nombreHilo 
+from produccion 
+INNER JOIN empleados on produccion.trabajador_id = empleados.id 
+INNER JOIN dibujos on produccion.dibujo_id = dibujos.id
+INNER JOIN hilos on produccion.hilo_id = hilos.id
+ORDER BY ID_usuario DESC");
+
 $i =0;
 while ($row = mysqli_fetch_array($sql)) {
 	$i++;
 	$ID_usuario = $row['ID_usuario'];
-	$nombre = $row['nombre'];
-	$apellido = $row['apellido'];
-	$edad = $row['edad'];
+	$trabajador = $row['nombres'];
+	$dibujo = $row['dibujo'];
+	$hilo = $row['nombreHilo'];
 	?>
      <tr>
      	<td> <?php echo $i; ?></td>
-     	<td> <?php echo $nombre; ?></td>
-     	<td> <?php echo $apellido; ?></td>
-     	<td> <?php echo $edad; ?></td>
+     	<td> <?php echo $trabajador; ?></td>
+     	<td> <?php echo $dibujo; ?></td>
+     	<td> <?php echo $hilo; ?></td>
      	<td class="col-lg-1"> 
      		 
      		 <button class="btn btn-primary btn-xs" style="width: 100%;" data-toggle="modal" data-target="#myModal_editar" onclick="btn_editar('<?php echo $ID_usuario; ?>');"> Editar </button>

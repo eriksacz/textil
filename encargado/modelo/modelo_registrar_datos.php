@@ -1,14 +1,29 @@
 <?php
+require '../../conector/conexion.php';
 
- $nombre = $_POST['nombre']; 
- $apellido = $_POST['apellido']; 
- $edad = $_POST['edad'];
+ $trabajador = $_POST['trabajador']; 
+ $dibujo = $_POST['dibujo']; 
+ $hilo = $_POST['hilo'];
 
- require '../../conector/conexion.php';
+ 
+$sql = mysqli_query($con,"SELECT id FROM empleados WHERE nombres ='$trabajador'");
+while ($row = mysqli_fetch_array($sql)) {
+	$id_trabajador = $row['id'];
+}
+$sql1 = mysqli_query($con,"SELECT id FROM dibujos WHERE dibujo ='$dibujo'");
+while ($row = mysqli_fetch_array($sql1)) {
+	$id_dibujo = $row['id'];
+}
+$sql2 = mysqli_query($con,"SELECT id FROM hilos WHERE nombreHilo ='$hilo'");
+while ($row = mysqli_fetch_array($sql2)) {
+	$id_hilo = $row['id'];
+}
 
- $sql = mysqli_query($con,"INSERT INTO `usuario` (`ID_usuario`, `nombre`, `apellido`, `edad`) VALUES (NULL, '$nombre', '$apellido', '$edad')");
+ $sqll = mysqli_query($con,"INSERT INTO `produccion` (`ID_usuario`, `trabajador_id`, `dibujo_id`, `hilo_id`) 
+										   VALUES (NULL, '$id_trabajador', '$id_dibujo', '$id_hilo')");
+										   
 
- if($sql == TRUE){
+ if($sqll == TRUE){
  	echo "Registro Correcto XD";
  }
 

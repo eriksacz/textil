@@ -1,13 +1,13 @@
 
 function btn_guardar_dato()
 {
-	 var nombre = $("#nombre").val();
-	 var apellido = $("#apellido").val();
-	 var edad = $("#edad").val();
+	 var trabajador = $("#trabajador").val();
+	 var dibujo = $("#dibujo").val();
+	 var hilo = $("#hilo").val();
 
-	 //alert(nombre+" - "+apellido+" - "+edad);
+	alert(trabajador+" - "+dibujo+" - "+hilo);
 
-	 var ob = {nombre:nombre, apellido:apellido, edad:edad};
+	 var ob = {trabajador:trabajador, dibujo:dibujo, hilo:hilo};
 
 	 $.ajax({
                 type: "POST",
@@ -74,13 +74,13 @@ function btn_editar(ID_usuario)
 function btn_guardar_edicion()
 {    
      var ID_usuario = $("#ID_usuario").val();
-	 var nombre = $("#nombre_ed").val();
-	 var apellido = $("#apellido_ed").val();
-	 var edad = $("#edad_ed").val();
+	 var trabajador = $("#trabajador_ed").val();
+	 var dibujo = $("#dibujo_ed").val();
+	 var hilo = $("#hilo_ed").val();
 
-	 //alert(nombre+" - "+apellido+" - "+edad);
+	 //alert(trabajador+" - "+dibujo+" - "+hilo);
 
-	 var ob = {nombre:nombre, apellido:apellido, edad:edad,ID_usuario:ID_usuario};
+	 var ob = {trabajador:trabajador, dibujo:dibujo, hilo:hilo,ID_usuario:ID_usuario};
 
 	 $.ajax({
                 type: "POST",

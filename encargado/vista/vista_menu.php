@@ -1,3 +1,7 @@
+<?php
+ require '../../conector/conexion.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,20 +24,66 @@
     	<div id="panel_registro" style="padding: 5%; box-shadow: 1px 2px 2px #A4A4A4; border:1px solid #A4A4A4;" align="center">
     		<!-- Panel de datos -->
     		<table class="table table-condensed" style="width: 70%;">
-    			<tr>
-    				<td> <label> Nombre </label></td>
-    				<td> <input type="text" id="nombre" class="form-control" placeholder="* Nombre"></td></tr>
-    			<tr> <td> <label> Apellido </label></td>
-    				<td> <input type="text" id="apellido" class="form-control" placeholder="* Apellido"></td></tr>
-    			<tr> <td> <label> Edad </label></td>
-    				<td> <input type="number" id="edad" min="0" class="form-control" placeholder="* Edad"></td>
-    			</tr>
+					
+			
+					<tr>
+					<td><label>Trabajador</label></td>
+					<td>
+					<select id="trabajador" class="form-control">
+					<option value=""></option>
+					<?php
+					$sql = mysqli_query($con,"SELECT * FROM empleados WHERE estado BETWEEN '2' and '3'");
+					while($fila=$sql->fetch_array()){
+						echo "<option value='".$fila['nombres']."'>".$fila['nombres']."</option>";
+					}
+					?>
+					</select>
+					</td>
+					</tr>
+
+
+
+					<tr>
+					<td><label>Dibujo</label></td>
+					<td>
+					<select id="dibujo" class="form-control">
+					<option value=""></option>
+					<?php
+					$sql = mysqli_query($con,"SELECT * FROM dibujos");
+					while($fila=$sql->fetch_array()){
+						echo "<option value='".$fila['dibujo']."'>".$fila['dibujo']."</option>";
+					}
+					?>
+					</select>
+					</td>
+					</tr>
+
+
+					<tr>
+					<td><label>Hilo</label></td>
+					<td>
+					<select id="hilo" class="form-control">
+					<option value=""></option>
+					<?php
+					$sql = mysqli_query($con,"SELECT * FROM hilos");
+					while($fila=$sql->fetch_array()){
+						echo "<option value='".$fila['nombreHilo']."'>".$fila['nombreHilo']."</option>";
+					}
+					?>
+					</select>
+					</td>
+					</tr>
+
+			
+
     			<tr>
     				<td colspan="2">
     					<hr>
     					<div id="panel_respuesta"></div>
     				</td>
-    			</tr>
+				</tr>
+				
+
     			<tr>
     				<td colspan="2" align="center">
     					<button class="btn btn-success btn-md" onclick="btn_guardar_dato();"> Registrar </button>
