@@ -10,9 +10,11 @@ WHERE ID_usuario='$ID_usuario'");
 
 $row = mysqli_fetch_array($sql);
 
-echo "!! Desea Eliminar a ";
+echo " Desea Eliminar a :  ";
+echo " ";
 echo $trabajador = $row['nombres']; 
-echo " "; echo $dibujo = $row['fecha'];
+echo " ";
+echo " De este dia : "; echo $dibujo = $row['fecha'];
 
 echo " ? ";
 

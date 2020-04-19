@@ -73,6 +73,91 @@
 					</select>
 					</td>
 					</tr>
+					
+					<!--nuevos campos-->
+
+
+					<tr>
+					<td><label>Composicion</label></td>
+					<td>
+					<select id="composicion" class="form-control">
+					<option value=""></option>
+					<?php
+					$sql = mysqli_query($con,"SELECT * FROM composiciones");
+					while($fila=$sql->fetch_array()){
+						echo "<option value='".$fila['composicion']."'>".$fila['composicion']."</option>";
+					}
+					?>
+					</select>
+					</td>
+					</tr>
+
+
+					<tr>
+					<td><label>Maquina</label></td>
+					<td>
+					<select id="maquina" class="form-control">
+					<option value=""></option>
+					<?php
+					$sql = mysqli_query($con,"SELECT * FROM maquinas");
+					while($fila=$sql->fetch_array()){
+						echo "<option value='".$fila['numero']."'>".$fila['numero']."</option>";
+					}
+					?>
+					</select>
+					</td>
+					</tr>
+
+					<tr>
+						<td> <label>Turno</label> </td>
+						<td>
+							<select id="turno" class="form-control">
+								<option value=""></option>
+								<option value="dia">Dia</option>
+								<option value="noche">Noche</option>
+							</select>
+						</td>
+					</tr>
+
+
+
+					<tr>
+					<td><label>Lote</label></td>
+					<td>
+					<select id="lote" class="form-control">
+					<option value=""></option>
+					<?php
+					$sql = mysqli_query($con,"SELECT * FROM lotes Where estatus=1");
+					while($fila=$sql->fetch_array()){
+						echo "<option value='".$fila['lote']."'>".$fila['lote']."</option>";
+					}
+					?>
+					</select>
+					</td>
+					</tr>
+
+
+
+
+					<tr>
+						<td> <label> Fecha </label></td>
+						<td> <input type="date" id="fecha" min="0" class="form-control"></td>
+					</tr>
+					
+
+					<tr>
+						<td> <label> Numero de rollo</label></td>
+						<td> <input type="number" id="rollo" min="0" class="form-control"></td>
+					</tr>
+					
+
+
+					<tr>
+						<td> <label> Kg</label></td>
+						<td> <input type="number" id="kilos" min="0" class="form-control"></td>
+					</tr>
+
+					<!-- // nuevos campos -->
 
 			
 

@@ -2,10 +2,17 @@
 <table class="table table-bordered">
 	<tr>
 		<th> # </th>
-		<th> trabajador </th>
-		<th> dibujo </th>
-		<th> hilo </th>
-		<th> </th>
+		<th> Trabajador </th>
+		<th> Dibujo </th>
+		<th> Hilo </th>
+		<th> Composicion </th>
+		<th> Maquina </th>
+		<th> Turno </th>
+		<th> Lote </th>
+		<th> Fecha </th>
+		<th> rollo </th>
+		<th> kilo </th>
+		<th>Opciones </th>
 	</tr>
 <?php
 
@@ -13,11 +20,17 @@ require '../../conector/conexion.php';
 
 //$sql = mysqli_query($con,"SELECT * FROM produccion ORDER BY ID_usuario DESC");
 
-$sql = mysqli_query($con,"SELECT produccion.ID_usuario, empleados.nombres, dibujos.dibujo, hilos.nombreHilo 
+$sql = mysqli_query($con,"SELECT produccion.ID_usuario, produccion.fecha, produccion.rollo, produccion.kg,
+       empleados.nombres, dibujos.dibujo, hilos.nombreHilo, composiciones.composicion, maquinas.numero, 
+       turnos.turno, lotes.lote 
 from produccion 
 INNER JOIN empleados on produccion.trabajador_id = empleados.id 
 INNER JOIN dibujos on produccion.dibujo_id = dibujos.id
 INNER JOIN hilos on produccion.hilo_id = hilos.id
+INNER JOIN composiciones on produccion.composicion_id = composiciones.id 
+INNER JOIN maquinas on produccion.maquina_id = maquinas.id
+INNER JOIN turnos on produccion.turno_id = turnos.id
+INNER JOIN lotes on produccion.lote_id = lotes.id
 ORDER BY ID_usuario DESC");
 
 $i =0;
@@ -26,13 +39,27 @@ while ($row = mysqli_fetch_array($sql)) {
 	$ID_usuario = $row['ID_usuario'];
 	$trabajador = $row['nombres'];
 	$dibujo = $row['dibujo'];
-	$hilo = $row['nombreHilo'];
+  $hilo = $row['nombreHilo'];
+  $composicion = $row['composicion'];
+  $numero = $row['numero'];
+  $turno = $row['turno'];
+  $lote = $row['lote'];
+  $fecha = $row['fecha'];
+  $rollo = $row['rollo'];
+  $kg = $row['kg'];
 	?>
      <tr>
      	<td> <?php echo $i; ?></td>
      	<td> <?php echo $trabajador; ?></td>
      	<td> <?php echo $dibujo; ?></td>
      	<td> <?php echo $hilo; ?></td>
+     	<td> <?php echo $composicion; ?></td>
+     	<td> <?php echo $numero; ?></td>
+     	<td> <?php echo $turno; ?></td>
+     	<td> <?php echo $lote; ?></td>
+     	<td> <?php echo $fecha; ?></td>
+     	<td> <?php echo $rollo; ?></td>
+     	<td> <?php echo $kg; ?></td>
      	<td class="col-lg-1"> 
      		 
      		 <button class="btn btn-primary btn-xs" style="width: 100%;" data-toggle="modal" data-target="#myModal_editar" onclick="btn_editar('<?php echo $ID_usuario; ?>');"> Editar </button>

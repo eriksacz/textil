@@ -3,11 +3,20 @@ function btn_guardar_dato()
 {
 	 var trabajador = $("#trabajador").val();
 	 var dibujo = $("#dibujo").val();
-	 var hilo = $("#hilo").val();
+    var hilo = $("#hilo").val();
+    var composicion = $("#composicion").val();
+    var maquina = $("#maquina").val();
+    var turno = $("#turno").val();
+    var lote = $("#lote").val();
+    var fecha = $("#fecha").val();
+    var rollo = $("#rollo").val();
+    var kilos = $("#kilos").val();
 
-	alert(trabajador+" - "+dibujo+" - "+hilo);
+   alert(trabajador+" - "+dibujo+" - "+hilo+" - "+composicion+" - "+maquina+" - "+turno+" - "+lote+" - "+fecha
+   +" - "+rollo+" - "+kilos);
 
-	 var ob = {trabajador:trabajador, dibujo:dibujo, hilo:hilo};
+    var ob = {trabajador:trabajador, dibujo:dibujo, hilo:hilo, composicion:composicion, maquina:maquina,
+      turno:turno, lote:lote, fecha:fecha, rollo:rollo, kilos:kilos};
 
 	 $.ajax({
                 type: "POST",
@@ -77,10 +86,18 @@ function btn_guardar_edicion()
 	 var trabajador = $("#trabajador_ed").val();
 	 var dibujo = $("#dibujo_ed").val();
 	 var hilo = $("#hilo_ed").val();
+	 var composicion = $("#composicion_ed").val();
+	 var maquina = $("#maquina_ed").val();
+	 var turno = $("#turno_ed").val();
+	 var lote = $("#lote_ed").val();
+	 var fecha = $("#fecha_ed").val();
+	 var rollo = $("#rollo_ed").val();
+	 var kilos = $("#kilos_ed").val();
 
 	 //alert(trabajador+" - "+dibujo+" - "+hilo);
 
-	 var ob = {trabajador:trabajador, dibujo:dibujo, hilo:hilo,ID_usuario:ID_usuario};
+    var ob = {trabajador:trabajador, dibujo:dibujo, hilo:hilo,composicion:composicion,maquina:maquina,
+      turno:turno,lote:lote,fecha:fecha,rollo:rollo,kilos:kilos,ID_usuario:ID_usuario};
 
 	 $.ajax({
                 type: "POST",
