@@ -15,7 +15,7 @@ if ($conexion->connect_error) {
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM $tbl_name WHERE usuario = '$username'";
+$sql = "SELECT * FROM $tbl_name WHERE username = '$username'";
 
 
 $result = $conexion->query($sql);
@@ -33,13 +33,13 @@ if ($password==$row['password']) {
     $_SESSION['start'] = time();
     $_SESSION['expire'] = $_SESSION['start'] + (1 * 60); //Aqui se le pone el tiempo que se desea por inactividad
 
-    $sql1 = "SELECT estado FROM $tbl_name WHERE usuario = '$username'";
+    $sql1 = "SELECT rol_id FROM $tbl_name WHERE username = '$username'";
     $result1 = $conexion->query($sql1);
     if ($result1->num_rows > 0) {     }
     $row = $result1->fetch_array(MYSQLI_ASSOC);
-    if ($row['estado'] == 1) {
+    if ($row['rol_id'] == 4) {
           header('Location: panel-control.php');//redirecciona a la pagina del usuario
-    }else if($row['estado'] == 2){
+    }else if($row['rol_id'] == 2){
           header('Location: encargado/vista/vista_menu.php');
     }
  } else {

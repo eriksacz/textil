@@ -1,5 +1,30 @@
 <?php
  require '../../conector/conexion.php';
+
+ session_start();
+ 
+ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+ 
+ } else {
+	echo "Inicia Sesion para acceder a este contenido.<br>";
+	echo "<br><a href='login.html'>Login</a>";
+	header('Location: login.html');//redirige a la página de login si el usuario quiere ingresar sin iniciar sesion
+ 
+ 
+ exit;
+ }
+ 
+ $now = time();
+ 
+ if($now > $_SESSION['expire']) {
+ session_destroy();
+ header('Location: ../../index.html');//redirige a la página de login, modifica la url a tu conveniencia
+ echo "Tu sesion a expirado,
+ <a href='login.html'>Inicia Sesion</a>";
+ exit;
+ }
+ 
+ 
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +40,13 @@
 
 </head>
 <body>
+
+
+<div class="jumbotron text-center">
+  <h1>Bienvenido <?php echo  $_SESSION['username'];?></h1>
+  <p>Manten tu perfil actualizado</p>
+  <a href=logout.php><button type="button" class="btn btn-success"> Cerrar Sesion</button></a>
+</div>
 	<h1 align="center"> Distribuidora Rainbow Textil </h1>
 
 	<div class="row" style="margin: 0px; padding: 0px;"> 
