@@ -8,7 +8,7 @@
  } else {
 	echo "Inicia Sesion para acceder a este contenido.<br>";
 	echo "<br><a href='login.html'>Login</a>";
-	header('Location: login.html');//redirige a la página de login si el usuario quiere ingresar sin iniciar sesion
+	header('Location: index.html');//redirige a la página de login si el usuario quiere ingresar sin iniciar sesion
  
  
  exit;
@@ -20,7 +20,7 @@
  session_destroy();
  header('Location: ../../index.html');//redirige a la página de login, modifica la url a tu conveniencia
  echo "Tu sesion a expirado,
- <a href='login.html'>Inicia Sesion</a>";
+ <a href='index.html'>Inicia Sesion</a>";
  exit;
  }
  
@@ -42,16 +42,15 @@
 <body>
 
 
-<div class="jumbotron text-center">
-  <h1>Bienvenido <?php echo  $_SESSION['username'];?></h1>
-  <p>Manten tu perfil actualizado</p>
-  <a href=logout.php><button type="button" class="btn btn-success"> Cerrar Sesion</button></a>
-</div>
 	<h1 align="center"> Distribuidora Rainbow Textil </h1>
 
 	<div class="row" style="margin: 0px; padding: 0px;"> 
 
     <div class="col-lg-4 col-md-6 xs-10">
+
+<h4 align="center" > <?php echo 'Bienvenido >> '.$_SESSION['username'];   ?>
+&nbsp &nbsp &nbsp<input class="btn btn-warning btn-xs" type='button' value='Cerrar sesion' onclick='salir()'/></h4>
+
     	<h3 align="center"> Registro de Produccion </h3>
     	<div id="panel_registro" style="padding: 5%; box-shadow: 1px 2px 2px #A4A4A4; border:1px solid #A4A4A4;" align="center">
     		<!-- Panel de datos -->

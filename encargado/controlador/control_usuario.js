@@ -1,3 +1,12 @@
+function salir(){
+   var respuesta=confirm("¿Desea usted realmente salir?");
+   if(respuesta==true)
+       window.location="../../logout.php";
+  else
+       return 0;
+}
+
+
 
 function btn_guardar_dato()
 {
