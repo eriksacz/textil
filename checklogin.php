@@ -37,8 +37,8 @@ if ($password==$row['password']) {
     $result1 = $conexion->query($sql1);
     if ($result1->num_rows > 0) {     }
     $row = $result1->fetch_array(MYSQLI_ASSOC);
-    if ($row['rol_id'] == 4) {
-          header('Location: panel-control.php');//redirecciona a la pagina del usuario
+    if ($row['rol_id'] == 1) {
+          header('Location: admin/menu.php');//redirecciona a la pagina del usuario
     }else if($row['rol_id'] == 2){
           header('Location: encargado/vista/vista_menu.php');
     }
