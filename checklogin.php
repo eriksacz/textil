@@ -45,7 +45,7 @@ if ($password==$row['password']) {
  } else {
    echo "Username o Password estan incorrectos.";
 
-   echo "<br><a href='login.html'>Volver a Intentarlo</a>";
+   echo "<br><a href='index.html'>Volver a Intentarlo</a>";
  }
  mysqli_close($conexion);
  ?>
