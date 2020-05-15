@@ -31,7 +31,7 @@ if ($password==$row['password']) {
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
     $_SESSION['start'] = time();
-    $_SESSION['expire'] = $_SESSION['start'] + (1 * 60); //Aqui se le pone el tiempo que se desea por inactividad
+    $_SESSION['expire'] = $_SESSION['start'] + (5 * 60); //Aqui se le pone el tiempo que se desea por inactividad
 
     $sql1 = "SELECT rol_id FROM $tbl_name WHERE username = '$username'";
     $result1 = $conexion->query($sql1);
