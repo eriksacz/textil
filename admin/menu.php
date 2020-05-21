@@ -74,7 +74,7 @@ function salir(){
 
         <a type="button" class="btn btn-outline-primary" href="usuarios/index.php"> Usuarios y Trabajdores</a>
         <hr>
-        <a type="button" class="btn btn-outline-secondary" href="altas/vista/vista_menu.php">Entradas de Hilo</a>
+        <a type="button" class="btn btn-outline-secondary" href="entradashilo/vista/vista_menu.php">Entradas de Hilo</a>
         <hr>
         <a type="button" class="btn btn-outline-danger" href="bajas/vista/vista_menu.php">Salida de Rollo</a>
         <hr>
