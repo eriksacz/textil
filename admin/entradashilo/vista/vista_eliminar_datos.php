@@ -4,12 +4,12 @@ $id = $_POST['id'];
 
 require '../conector/conexion.php';
 
-$sql = mysql_query("SELECT * FROM usuario WHERE id='$id'");
-$row = mysql_fetch_array($sql);
+$sql = mysqli_query($con,"SELECT * FROM altas WHERE id='$id'");
+$row = mysqli_fetch_array($sql);
 
-echo "!! Desea Eliminar a ";
-echo $nofacatura = $row['nofacatura']; 
-echo " "; echo $proveedor = $row['proveedor'];
+echo "!! Desea Eliminar la Factura --> ";
+echo $nofacatura = $row['no_factura']; 
+//echo " "; echo $proveedor = $row['proveedor'];
 
 echo " ? ";
 

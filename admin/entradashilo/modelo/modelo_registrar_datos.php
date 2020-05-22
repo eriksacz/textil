@@ -44,7 +44,7 @@ while ($row = mysqli_fetch_array($sql6)) {
  if (mysqli_query($con, $sql)) {
 	echo "New record created successfully";
 } else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($con);
+//	echo "Error: " . $sql . "<br>" . mysqli_error($con);
 }
 
 
