@@ -15,20 +15,39 @@
 
 require '../conector/conexion.php';
 
-$sql = mysqli_query($con,"SELECT * FROM altas ORDER BY id DESC");
+///_____________________________________________________________________________
+
+///____________________________________________________________________________
+
+
+$sql = mysqli_query($con,"SELECT altas.id, altas.no_factura, hilos.nombreHilo, altas.no_pallets,
+                   composiciones.composicion, lotes.lote, altas.kilos, altas.fecha
+                   from altas
+                   INNER JOIN hilos on altas.proveedor_id = hilos.id
+                   INNER JOIN composiciones on altas.composicion_id = composiciones.id 
+                   INNER JOIN lotes on altas.lote_id = lotes.id
+                   ORDER BY id DESC");
 $i =0;
 while ($row = mysqli_fetch_array($sql)) {
 	$i++;
 	$id = $row['id'];
-	$nofacatura = $row['nofacatura'];
-	$proveedor = $row['proveedor'];
-	$nopallets = $row['nopallets'];
+	$nofacatura = $row['no_factura'];
+	$proveedor = $row['nombreHilo'];
+  $nopallets = $row['no_pallets'];
+  $composicion = $row['composicion']; 
+  $lote = $row['lote']; 
+  $kilos = $row['kilos']; 
+  $fecha = $row['fecha']; 
 	?>
      <tr>
      	<td> <?php echo $i; ?></td>
      	<td> <?php echo $nofacatura; ?></td>
      	<td> <?php echo $proveedor; ?></td>
      	<td> <?php echo $nopallets; ?></td>
+     	<td> <?php echo $composicion; ?></td>
+     	<td> <?php echo $lote; ?></td>
+     	<td> <?php echo $kilos; ?></td>
+     	<td> <?php echo $fecha; ?></td>
      	<td class="col-lg-1"> 
      		 
      		 <button class="btn btn-primary btn-xs" style="width: 100%;" data-toggle="modal" data-target="#myModal_editar" onclick="btn_editar('<?php echo $id; ?>');"> Editar </button>

@@ -6,8 +6,7 @@
 
  require '../conector/conexion.php';
 
- $sql = mysql_query("
-UPDATE `usuario` SET `nofacatura` = '$nofacatura', `proveedor` = '$proveedor', `nopallets` = '$nopallets' WHERE `usuario`.`id` = $id");
+ $sql = mysqli_query($con,"UPDATE `usuario` SET `nofacatura` = '$nofacatura', `proveedor` = '$proveedor', `nopallets` = '$nopallets' WHERE `usuario`.`id` = $id");
  
  if($sql == TRUE){
  	echo "Edicion Correcto XD";

@@ -13,10 +13,16 @@ function btn_guardar_dato()
 	 var nofacatura = $("#nofacatura").val();
 	 var proveedor = $("#proveedor").val();
 	 var nopallets = $("#nopallets").val();
+	 var composicion = $("#composicion").val();
+	 var lote = $("#lote").val();
+	 var kilos = $("#kilos").val();
+	 var fecha = $("#fecha").val();
 
-	 //alert(nofacatura+" - "+proveedor+" - "+nopallets);
+    alert(nofacatura+" - "+proveedor+" - "+nopallets+" - "+composicion+" - "+lote+" - "+kilos
+          +" - "+fecha);
 
-	 var ob = {nofacatura:nofacatura, proveedor:proveedor, nopallets:nopallets};
+    var ob = {nofacatura:nofacatura, proveedor:proveedor, nopallets:nopallets, composicion:composicion,
+              lote:lote, kilos:kilos, fecha:fecha};
 
 	 $.ajax({
                 type: "POST",
