@@ -1,12 +1,13 @@
 <?php
  $id = $_POST['id'];
- $nofacatura = $_POST['nofacatura']; 
- $proveedor = $_POST['proveedor']; 
+ $nofactura = $_POST['nofactura'];  
  $nopallets = $_POST['nopallets'];
+ $kilos = $_POST['kilos'];
 
  require '../conector/conexion.php';
 
- $sql = mysqli_query($con,"UPDATE `usuario` SET `nofacatura` = '$nofacatura', `proveedor` = '$proveedor', `nopallets` = '$nopallets' WHERE `usuario`.`id` = $id");
+ $sql = mysqli_query($con,"UPDATE `altas` SET `no_factura` = '$nofactura', 
+ `no_pallets` = '$nopallets', `kilos` = '$kilos' WHERE `altas`.`id` = $id");
  
  if($sql == TRUE){
  	echo "Edicion Correcto XD";

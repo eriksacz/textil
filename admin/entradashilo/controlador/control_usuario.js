@@ -89,13 +89,13 @@ function btn_editar(id)
 function btn_guardar_edicion()
 {    
      var id = $("#id").val();
-	 var nofacatura = $("#nofacatura_ed").val();
-	 var proveedor = $("#proveedor_ed").val();
+	 var nofactura = $("#nofactura_ed").val();
 	 var nopallets = $("#nopallets_ed").val();
+	 var kilos = $("#kilos_ed").val();
 
-	 //alert(nofacatura+" - "+proveedor+" - "+nopallets);
+	 alert(nofactura+nopallets+kilos);
 
-	 var ob = {nofacatura:nofacatura, proveedor:proveedor, nopallets:nopallets,id:id};
+	 var ob = {nofactura:nofactura, nopallets:nopallets, kilos:kilos,id:id};
 
 	 $.ajax({
                 type: "POST",
