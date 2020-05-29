@@ -92,10 +92,14 @@ function btn_guardar_edicion()
 	 var nofactura = $("#nofactura_ed").val();
 	 var nopallets = $("#nopallets_ed").val();
 	 var kilos = $("#kilos_ed").val();
+	 var proveedor = $("#proveedor_ed").val();
+	 var composicion = $("#composicion_ed").val();
+	 var lote = $("#lote_ed").val();
 
-	 alert(nofactura+nopallets+kilos);
+	 alert(nofactura+" "+nopallets+" "+kilos+" "+proveedor+" "+composicion+" "+lote);
 
-	 var ob = {nofactura:nofactura, nopallets:nopallets, kilos:kilos,id:id};
+    var ob = {nofactura:nofactura, nopallets:nopallets, kilos:kilos,proveedor:proveedor,composicion:composicion,
+               lote:lote,id:id};
 
 	 $.ajax({
                 type: "POST",
