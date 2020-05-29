@@ -19,7 +19,7 @@
  
  if($now > $_SESSION['expire']) {
  session_destroy();
- header('Location: ../../index.html');//redirige a la página de login, modifica la url a tu conveniencia
+ header('Location: ../../../index.html');//redirige a la página de login, modifica la url a tu conveniencia
  echo "Tu sesion a expirado,
  <a href='index.html'>Inicia Sesion</a>";
  exit;
@@ -43,17 +43,23 @@
 <body>
 
 
-	<h1 align="center"> Entradas de Hilo </h1>
+	<h1 align="center"> Entradas de Hilo
+	   <p>
+	<a type="button" class="btn btn-primary" role="button" aria-expanded="false" aria-controls="collapseExample" 
+	href="../../menu.php">Menu Principal</a>
+       </p>
+	</h1>
 
+	
 	<div class="row" style="margin: 0px; padding: 0px;"> 
+
 
     <div class="col-lg-3 col-md-5 xs-9">
 
 	<h4 align="center" > <?php echo 'Bienvenido >> '.$_SESSION['username']; ?>
 			&nbsp &nbsp &nbsp<input class="btn btn-warning btn-xs" type='button' value='Cerrar sesion' onclick='salir()'/></h4>
 
-
-
+	
     	<h3 align="center"> Registro </h3>
     	<div id="panel_registro" style="padding: 5%; box-shadow: 1px 2px 2px #A4A4A4; border:1px solid #A4A4A4;" align="center">
     		<!-- Panel de datos -->
