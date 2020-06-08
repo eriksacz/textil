@@ -15,7 +15,7 @@
 	</tr>
 <?php
 
-require '../conector/conexion.php';
+require '../../../conector/conexion.php';
 
 $sql = mysqli_query($con,"SELECT bajas.id,bajas.no_nota, bajas.no_rollos,bajas.fecha,bajas.kilos, dibujos.dibujo, proveedores.proveedor,
                       composiciones.composicion, lotes.lote, maquinas.numero 

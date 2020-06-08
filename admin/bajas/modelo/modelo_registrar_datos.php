@@ -10,7 +10,7 @@
  $kilos = $_POST['kilos'];
  $fecha = $_POST['fecha'];
 
- require '../conector/conexion.php';
+ require '../../../conector/conexion.php';
 
  $sql1 = mysqli_query($con,"SELECT id FROM dibujos WHERE dibujo ='$dibujo'");
  while ($row = mysqli_fetch_array($sql1)) {
