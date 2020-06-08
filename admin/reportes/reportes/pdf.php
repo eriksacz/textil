@@ -17,7 +17,7 @@
             $this->Cell(80,10,'Distribuidora Rainbow Textil',1,0,'C',1);
             // Salto de línea
             $this->Ln(20);
-            $this->SetFillColor(20, 113, 2511);
+            $this->SetFillColor(255, 255, 255);
             $this->Cell(25,10,'ID',1,0,'C',1);
             $this->Cell(50,10,'Nombre',1,0,'C',1);
             $this->Cell(30,10,'Dibujo',1,0,'C',1);

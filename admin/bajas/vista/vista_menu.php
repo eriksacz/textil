@@ -1,5 +1,5 @@
 <?php
-require '../conector/conexion.php';
+require '../../../conector/conexion.php';
 session_start();
  
  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -48,7 +48,7 @@ session_start();
 
 	<div class="row" style="margin: 0px; padding: 0px;"> 
 
-    <div class="col-lg-4 col-md-6 xs-10">
+    <div class="col-lg-3 col-md-5 xs-9">
 	<h4 align="center" > <?php echo 'Bienvenido >> '.$_SESSION['username']; ?>
 			&nbsp &nbsp &nbsp<input class="btn btn-warning btn-xs" type='button' value='Cerrar sesion' onclick='salir()'/></h4>
 
@@ -60,7 +60,8 @@ session_start();
     			<tr>
     				<td> <label> N° Nota </label></td>
     				<td> <input type="text" id="nonota" class="form-control" placeholder="* nonota"></td></tr>
-    			<tr> <td> <label> N° Rollos </label></td>
+    			<tr> 
+					<td> <label> N° Rollos </label></td>
     				<td> <input type="text" id="norollos" class="form-control" placeholder="* norollos"></td></tr>
     			
 				

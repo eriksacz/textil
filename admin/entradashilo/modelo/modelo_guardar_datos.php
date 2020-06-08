@@ -7,7 +7,7 @@
  $composicion = $_POST['composicion'];
  $lote = $_POST['lote'];
 
- require '../conector/conexion.php';
+ require '../../../conector/conexion.php';
 
  $sql6 = mysqli_query($con,"SELECT id FROM lotes WHERE lote ='$lote'");
 while ($row = mysqli_fetch_array($sql6)) {

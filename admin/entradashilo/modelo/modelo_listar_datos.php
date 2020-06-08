@@ -13,7 +13,7 @@
 	</tr>
 <?php
 
-require '../conector/conexion.php';
+require '../../../conector/conexion.php';
 
 ///_____________________________________________________________________________
 
